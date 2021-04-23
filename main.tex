@@ -7,50 +7,11 @@ $if(lang)$
   $babel-lang$,
 $endif$
 ]{scrartcl}
-%%%%SETTINGS%%%%
-%% Document language (en, de)
-\newcommand{\documentLanguage}{de}
-\input{lang/\documentLanguage.tex}
 
-%% Document type
-% T2\_1000 Project Thesis (Semester 1 & 2)
-% T2\_2000 Project Thesis (Semester 3 & 4)
-% T2\_3100 Seminar Paper (Semester 5 & 6)
-% T2\_3300 Bachelor Thesis
-\newcommand{\documentType}{T2\_3000}
-%\newcommand{\documentTypePhrase}{Projektarbeit}
-
-\newcommand{\multipleAuthors}{false}
 \newcommand{\documentAuthor}{$PDF_AUTHOR$}
 \newcommand{\documentTitle}{$PDF_TITLE$}
-\newcommand{\documentPeriod}{12 Wochen}
 
-\newcommand{\matriculationNumber}{4303139}
-
-\newcommand{\locationUniversity}{Friedrichshafen}
-\newcommand{\department}{Wirtschatsingenieurwesen - Maschinenbau}
-\newcommand{\course}{TWI18-1}
-
-\newcommand{\degree}{Bachelor of Engineering}
-% INF2014 - INF2016 (MI):       Bachelor of Science
-% INF2014 - INF2016 (IA/IM) :   Bachelor of Engineering
-% INF2017 (all):                Bachelor of Science
-
-\newcommand{\releaseDate}{März 2021}
-\newcommand{\releaseLocation}{Manching}
-
-\newcommand{\companyName}{Airbus Defence and Space GmbH}
-\newcommand{\companyLocation}{Manching}
-
-\newcommand{\tutor}{B.Sc. Andreas Keis}
-\newcommand{\evaluator}{}
-
-\newcommand{\linkColor}{505050}
-%%%%SETTINGS%%%%%
-%%%%HEADER%%%%
-\usepackage{xstring}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+\input{ads/settings.tex}
 
 % iflang command definition
 \newcommand{\iflang}[2]{%
@@ -131,7 +92,7 @@ $endif$
 \usepackage{pifont}% http://ctan.org/pkg/pifont
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
-
+    
 % Generate glossary
 \makeglossaries{}
 
