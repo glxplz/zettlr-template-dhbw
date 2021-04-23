@@ -6,12 +6,6 @@ Open a terminal in the location where you want to create your project and clone 
 git clone https://github.com/glxplz/zettlr-template-dhbw.git
 ```
 
-## Add [Mermaid](https://mermaid-js.github.io/mermaid/#/) Support
-```bash
-npm install -g mermaid-filter
-```
-and add `-F mermaid-filter` to the Advanced Settings pandoc command.
-
 Open Zettlr and navigate to **File -> Open Workspace**
 
 <img src="./readme-screenshots/image-20210423192358174.png" alt="image-20210423192358174" style="zoom:33%;" />
@@ -43,6 +37,12 @@ Right click the project folder and click **Export Project**
 <img src="./readme-screenshots/image-20210423194222698.png" alt="image-20210423194222698" style="zoom:33%;" />
 
 **This may take a while! If you didn't get a success or error notification it is still running!**
+
+## Add [Mermaid](https://mermaid-js.github.io/mermaid/#/) Support
+```bash
+npm install -g mermaid-filter
+```
+and add `-F mermaid-filter` to the Advanced Settings pandoc command.
 
 # Common Errors
 
