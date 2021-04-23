@@ -6,15 +6,16 @@
 This is normal text.
 
 ```python
-while (true)
+while (true):
     print('this is code')
+    
 ```
 
 Inline Code is done like this `print('Hallo Welt')`{.python}. Neat!
-
+    
+    
     
 <!-- This is a comment -->
-
 
 : This is a table caption
 
@@ -59,15 +60,14 @@ And a footnote[^1]
 [^1]: This is the footnote text
 
 > This is a quote [@exsource]
-
 > Or a whole block
 
 And this is an acronym \ac{PMS}.
 
 The long version will only be placed the first time you use it: \ac{PMS}.
 
-You can also use [mermaid.js](https://mermaid-js.github.io/mermaid/) diagram rendering via fenced code blocks: 
-To make this work with exporting run `npm install -g mermaid-filter`and ensure the binary is in your `$PATH` and add `-F mermaid-filter`in your Advanced Settings pandoc command.
+You can also use [mermaid.js](https://mermaid-js.github.io/mermaid/) diagram rendering via fenced code blocks.
+To make this work with exporting run `npm install -g mermaid-filter` and ensure the binary is in your `$PATH` and add `-F mermaid-filter` in your Advanced Settings pandoc command.
 
 ```mermaid
 gantt
