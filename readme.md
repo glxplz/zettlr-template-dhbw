@@ -30,6 +30,12 @@ Under **Custom TeX-Template** select the "**main.tex"** in the project's parent 
 
 In Project Settings you may change other attributes of your project like title, author, margins, citation styles etc.
 
+## Add [Mermaid](https://mermaid-js.github.io/mermaid/#/) Support
+```bash
+npm install -g mermaid-filter
+```
+and add `-F mermaid-filter` to the Advanced Settings pandoc command.
+
 # Exporting a PDF
 
 Right click the project folder and click **Export Project**
@@ -37,12 +43,6 @@ Right click the project folder and click **Export Project**
 <img src="./readme-screenshots/image-20210423194222698.png" alt="image-20210423194222698" style="zoom:33%;" />
 
 **This may take a while! If you didn't get a success or error notification it is still running!**
-
-## Add [Mermaid](https://mermaid-js.github.io/mermaid/#/) Support
-```bash
-npm install -g mermaid-filter
-```
-and add `-F mermaid-filter` to the Advanced Settings pandoc command.
 
 # Common Errors
 
