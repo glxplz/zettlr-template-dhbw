@@ -1,0 +1,356 @@
+% Barebone template for use with Zettlr exporting engine
+% We have to use KOMA classes (scrartcl instead of article and scrreprt instead of report as well as scrbook instead of book)
+% More info: https://ctan.org/pkg/koma-script?lang=de
+\documentclass[
+$FONT_SIZE$,
+$if(lang)$
+  $babel-lang$,
+$endif$
+]{scrartcl}
+%%%%SETTINGS%%%%
+%% Document language (en, de)
+\newcommand{\documentLanguage}{de}
+\input{lang/\documentLanguage.tex}
+
+%% Document type
+% T2\_1000 Project Thesis (Semester 1 & 2)
+% T2\_2000 Project Thesis (Semester 3 & 4)
+% T2\_3100 Seminar Paper (Semester 5 & 6)
+% T2\_3300 Bachelor Thesis
+\newcommand{\documentType}{T2\_3000}
+%\newcommand{\documentTypePhrase}{Projektarbeit}
+
+\newcommand{\multipleAuthors}{false}
+\newcommand{\documentAuthor}{$PDF_AUTHOR$}
+\newcommand{\documentTitle}{$PDF_TITLE$}
+\newcommand{\documentPeriod}{12 Wochen}
+
+\newcommand{\matriculationNumber}{4303139}
+
+\newcommand{\locationUniversity}{Friedrichshafen}
+\newcommand{\department}{Wirtschatsingenieurwesen - Maschinenbau}
+\newcommand{\course}{TWI18-1}
+
+\newcommand{\degree}{Bachelor of Engineering}
+% INF2014 - INF2016 (MI):       Bachelor of Science
+% INF2014 - INF2016 (IA/IM) :   Bachelor of Engineering
+% INF2017 (all):                Bachelor of Science
+
+\newcommand{\releaseDate}{März 2021}
+\newcommand{\releaseLocation}{Manching}
+
+\newcommand{\companyName}{Airbus Defence and Space GmbH}
+\newcommand{\companyLocation}{Manching}
+
+\newcommand{\tutor}{B.Sc. Andreas Keis}
+\newcommand{\evaluator}{}
+
+\newcommand{\linkColor}{505050}
+%%%%SETTINGS%%%%%
+%%%%HEADER%%%%
+\usepackage{xstring}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% iflang command definition
+\newcommand{\iflang}[2]{%
+    \IfStrEq{\documentLanguage}{#1}{#2}{}%
+}
+
+% ifDocType comand definition
+\newcommand{\ifDocType}[3]{%
+  \IfStrEq{\documentType}{#1}{#2}{#3}%
+}
+
+% ifMultipleAuthors definition
+\newcommand{\ifMultipleAuthors}[2]{%
+  \IfStrEq{\multipleAuthors}{true}{#1}{#2}%
+}
+
+% Include main settings
+%\input{settings/main} 
+
+% Include document settings
+%\input{settings/document}
+
+% Load language specific Strings
+%\input{lang/en.tex}
+
+% Add comment feature
+\newcommand{\comment}[1]{\par {\bfseries \color{blue} #1 \par}}
+
+
+%%%%%%% Package Includes %%%%%%%
+\usepackage{chngcntr}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{tabularx}
+%\usepackage[margin=\margin,foot=1cm]{geometry}
+%\usepackage[activate]{microtype}                                         
+%\usepackage[onehalfspacing]{setspace}
+\usepackage{makeidx}
+\usepackage[autostyle=true,german=quotes]{csquotes}
+\usepackage{longtable}
+\usepackage{enumitem}	                                                 
+\usepackage{graphicx}
+\usepackage{pdfpages}                                                         
+\usepackage{xcolor} 	                                                    
+\usepackage{float}
+\usepackage{array}
+\usepackage{calc}		                         
+\usepackage[right]{eurosym}
+\usepackage{wrapfig}
+\usepackage{pgffor}                                                             
+\usepackage[perpage, hang, multiple, stable]{footmisc}  
+\usepackage[printonlyused]{acronym}                                 
+\usepackage{listings}
+\usepackage[obeyFinal,backgroundcolor=yellow,linecolor=black]{todonotes}
+\usepackage{rotating}
+\usepackage{lscape}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{eurosym}
+\usepackage{tocbibind} %makes list of figures, list of tables etc. show up in toc
+%\usepackage{\documentFont}
+%\usepackage[
+%	pdftitle={\documentTitle},
+%	pdfauthor={\documentAuthor},
+%	pdfsubject={\documentType},
+%	pdfcreator={pdflatex, LaTeX with KOMA-Script},
+%	pdfpagemode=UseOutlines,       % Show Contents while opening
+	%pdfdisplaydoctitle=true, 		% Show document title instead of file name
+	%pdflang={\documentLanguage}, % Document language
+%]{hyperref}
+\usepackage{bookmark}
+\usepackage[nonumberlist,toc,xindy]{glossaries}
+% add first occurence in footnote
+\defglsdisplayfirst[main]{#1#4\protect\footnote{#2}}
+
+% Commands for check and x marks
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+% Generate glossary
+\makeglossaries{}
+
+% Load colors
+%\defineColors{}
+
+% Set Titel, Autor and Date
+%\title{\documentTitle}
+%\author{\documentAuthor}
+%\date{\datum}
+
+
+% PDF link settings
+\hypersetup{%
+	colorlinks=true, 		
+	linkcolor=LinkColor, 	
+	citecolor=LinkColor,
+	filecolor=LinkColor,
+	menucolor=LinkColor,
+	urlcolor=LinkColor,
+	linktocpage=true, 
+	bookmarksnumbered=true 
+}
+
+% Captions fontsize
+\addtokomafont{caption}{\small}
+
+% Hurenkinder und Schusterjungen verhindern
+% http://projekte.dante.de/DanteFAQ/Silbentrennung
+\clubpenalty = 10000 % schließt Schusterjungen aus (Seitenumbruch nach der ersten Zeile eines neuen Absatzes)
+\widowpenalty = 10000 % schließt Hurenkinder aus (die letzte Zeile eines Absatzes steht auf einer neuen Seite)
+\displaywidowpenalty=10000
+
+% Graphicspath
+\graphicspath{{images/}}
+
+% frequently used programing languages
+\lstloadlanguages{PHP,Python,Java,C,C++,bash}
+
+%\listingsettings{}
+% Rename Listings
+\renewcommand\lstlistingname{\listingPhrase}
+\renewcommand\lstlistlistingname{\listListingPhrase}
+\def\lstlistingautorefname{\authorListingPhrase}
+
+% Spaces in tables
+%\setlength{\tabcolsep}{\tableColumnMargin}
+%\renewcommand{\arraystretch}{\tableRowMargin}
+
+% Manage ToDo's
+%\usepackage{todonotes}
+%\usepackage{ulem}
+\iflang{de}{\usepackage[english, ngerman]{babel}}
+\iflang{en}{\usepackage[ngerman, english]{babel}}
+%%%%HEADER%%%%
+
+% The following packages are needed for the combined use of Pandoc and XeTeX engine
+\usepackage{fontspec,xltxtra,xunicode}
+
+% These directives are necessary for Pandoc to correctly set the language of the
+% document. If the user uses XeLaTeX (the default for Zettlr), it will use
+% polyglossia, else it will use babel. We've simply copied that from the default
+% template -- thanks to the Pandoc community at this point!
+$if(lang)$
+\ifxetex
+  \usepackage{polyglossia}
+  \setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
+$for(polyglossia-otherlangs)$
+  \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
+$endfor$
+\else
+  \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
+\fi
+$endif$
+
+% Captions for tables and images
+\usepackage{caption}
+\captionsetup{format=plain, font=small, labelfont=bf}
+
+% This package is needed for better rendering of images (including captions)
+\usepackage{graphicx}
+
+% These packages are needed by pandoc for certain special glyphs, such as the
+% \square symbol for checkboxes.
+\usepackage{amssymb,amsmath}
+
+% Calc is needed to compute the image width (to prevent up-scaling of small images)
+\usepackage{calc}
+
+% ulem is needed for underlining and strikethrough text commands.
+% the option "normalem" is needed to preserve _italics_. Without the option,
+% _italics_ will become underlines, which is not desirable.
+\usepackage[normalem]{ulem}
+
+% Image scaling code from pandoc default.latex template
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+% Now we also have to make sure that the figures Pandoc inserts are positioned
+% approximately where they are at. Therefore we have to overwrite the
+% \begin{figure} command a little bit by using the float package:
+\usepackage{float}
+\floatplacement{figure}{H} % ensure default position as H (exactly where the figure is in the text)
+
+% Needed for pandoc's table generation
+\usepackage{longtable, booktabs, array}
+
+% Optional packages that Zettlr makes use of
+% fontspec is used to set the different fonts to the user's whishes
+\setmainfont{$MAIN_FONT$}
+\setsansfont{$SANS_FONT$}
+
+% With geometry we can let the user decide on the margin
+\usepackage{geometry}
+% Additional options for geometry can be found here: http://texdoc.net/texmf-dist/doc/latex/geometry/geometry.pdf
+\geometry{verbose,$PAPER_TYPE$,tmargin=$TOP_MARGIN$,bmargin=$BOTTOM_MARGIN$,lmargin=$LEFT_MARGIN$,rmargin=$RIGHT_MARGIN$}
+
+% PAGE NUMBERING OPTIONS: https://de.sharelatex.com/learn/Page_numbering
+\pagenumbering{$PAGE_NUMBERING$}
+
+% Line spacing
+\usepackage{setspace}
+
+% Can be a multiple of 1 (i.e. 1.5 for 150 percent)
+\setstretch{$LINE_SPACING$}
+
+% PDF metadata generated by Zettlr or given by the user, also some other URL
+% options (breaklinks breaks URLs so they aren't ugly)
+%\usepackage[hyphens]{url} % This package breaks links even better
+\usepackage{hyperref}
+\hypersetup{
+unicode=true,
+breaklinks=true,
+colorlinks=true,
+linkcolor=[rgb]{0.00,0.00,0.00},
+urlcolor=[rgb]{0.00,0.00,0.00},
+pdftitle={$PDF_TITLE$},
+pdfsubject={$PDF_SUBJECT$},
+pdfauthor={$PDF_AUTHOR$},
+pdfkeywords={$PDF_KEYWORDS$},
+pdfproducer={Zettlr with Pandoc and XeLaTeX},
+pdfborder={0 0 0}
+}
+
+% Setup pandoc code highlighting
+% pandoc uses an if statement, but until we have code
+% to enable or disable highlighting we'll ignore that.
+
+$highlighting-macros$
+
+
+% Set the date (either \today or a date from the frontmatter)
+\date{$PDF_DATE$}
+
+% The following commands must be provided for Pandoc to work correctly.
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% The following commands are used by Pandoc if a CSL bibliography is present
+% to create proper indentation, especially for styles with hanging indentation.
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+$endif$
+
+\title{$PDF_TITLE$}
+\author{$PDF_AUTHOR$}
+
+%\input{/home/damion/Desktop/Studium/Studienarbeit/Export/settings/document.tex}
+%\input{/home/damion/Desktop/Studium/Studienarbeit/Export/ads/header.tex}
+
+\begin{document}
+
+
+% Title page?
+%$TITLEPAGE$
+\pagenumbering{Roman}
+\input{ads/cover.tex}
+\input{ads/declaration.tex}
+\input{ads/restrictionNotices.tex}
+\input{ads/acronyms.tex}
+
+% Generate a table of contents?
+$GENERATE_TOC$
+
+% BEGIN BODY
+\pagenumbering{$PAGE_NUMBERING$}
+\setcounter{page}{1}
+\setcounter{table}{0}
+$body$
+
+\pagenumbering{Roman}
+\setcounter{page}{6}
+\pagebreak
+\listoftables
+\pagebreak
+\listoffigures
+\end{document} 
