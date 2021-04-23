@@ -8,19 +8,19 @@ git clone https://github.com/glxplz/zettlr-template-dhbw.git
 
 Open Zettlr and navigate to **File -> Open Workspace**
 
-<img src="./readme-screenshots/image-20210423192358174.png" alt="image-20210423192358174" style="zoom:67%;" />
+<img src="./readme-screenshots/image-20210423192358174.png" alt="image-20210423192358174" style="zoom:33%;" />
 
 Select the folder you just cloned
 
 Expand the workplace in Zettlr
 
-<img src="./readme-screenshots/image-20210423192827956.png" alt="image-20210423192827956" style="zoom:67%;" />
+<img src="./readme-screenshots/image-20210423192827956.png" alt="image-20210423192827956" style="zoom:33%;" />
 
 
 
 Right click **Export** and go to project settings
 
-<img src="./readme-screenshots/image-20210423193158650.png" alt="image-20210423193158650" style="zoom:67%;" />
+<img src="./readme-screenshots/image-20210423193158650.png" alt="image-20210423193158650" style="zoom:33%;" />
 
 Under **Custom TeX-Template** select the "**main.tex"** in the project's parent folder **(if you move you project folder, you will have to redo this step!)**
 
@@ -34,7 +34,7 @@ In Project Settings you may change other attributes of your project like title, 
 
 Right click the project folder and click **Export Project**
 
-<img src="./readme-screenshots/image-20210423194222698.png" alt="image-20210423194222698" style="zoom:67%;" />
+<img src="./readme-screenshots/image-20210423194222698.png" alt="image-20210423194222698" style="zoom:33%;" />
 
 **This may take a while! If you didn't get a success or error notification it is still running!**
 
