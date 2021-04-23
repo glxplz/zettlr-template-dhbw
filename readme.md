@@ -43,6 +43,9 @@ Right click the project folder and click **Export Project**
 <img src="./readme-screenshots/image-20210423194222698.png" alt="image-20210423194222698" style="zoom:33%;" />
 
 **This may take a while! If you didn't get a success or error notification it is still running!**
+See also:
+https://docs.zettlr.com/en/core/export/
+https://docs.zettlr.com/en/academic/projects/
 
 # Common Errors
 
