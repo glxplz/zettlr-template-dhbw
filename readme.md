@@ -48,15 +48,15 @@ Go to **Project settings** and under **Font** select fonts which are installed o
 
 ## I want to change the language
 
-In **main.tex** change the line 
+In **ads/settings.tex** change the line 
 ```tex
 \newcommand{\documentLanguage}{de}
 ```
 to your desired language ("de" for German or "en" for English)
-
+g
 ## I want to change the document type
 
-In **main.tex** change the line 
+In **ads/settings.tex** change the line 
 
 ```tex
 \newcommand{\documentType}{T2\_3000}
@@ -74,7 +74,7 @@ T2\_3300
 
 ## I want to change something else
 
-You can find everything you will need in the beginning of **main.tex**. The following lines can be used fo configuration and should be self explanatory:
+You can find everything you will need in the beginning of **ads/settings.tex**. The following lines can be used fo configuration and should be self explanatory:
 
 `````tex
 \newcommand{\documentPeriod}{12 Wochen}
