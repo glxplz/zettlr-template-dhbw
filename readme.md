@@ -124,3 +124,6 @@ In **main.tex** comment the relevant lines:
 You can specify a citation style through a CSL file in **Project settings -> CSL-Style**. CSL style files for all common style can be found here:
 
 https://github.com/citation-style-language/styles
+
+# Acknowledgements
+This project contains parts of Stefan Schneides [DHBW-Latex template](https://github.com/schnes4/dhbw-heidenheim-latex-template). Thank you!
