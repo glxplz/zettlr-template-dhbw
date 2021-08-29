@@ -5,10 +5,15 @@
 
 This is normal text.
 
-```python
+```{#lst:somePython .python caption="This is a caption for your code block"}
 while (true):
     print('this is code')
     
+```
+Unfortunately for the time being you can have either references and a caption or code highlighting in Zettlr.
+
+```python
+print(':(')
 ```
 
 Inline Code is done like this `print('Hallo Welt')`{.python}. Neat!
@@ -30,6 +35,8 @@ And this is an image. The caption is inside the square brackets.
 A reference to the image: @fig:bild1
 
 A reference to a Chapter: @sec:test
+
+**On references:** As you may have seen, references work through unique identifiers (like "bild1" and "test"). Theses IDs **must not** contain special characters like \_, #, @ etc.
 
 Some maths:
 $$
