@@ -30,6 +30,13 @@ Under **Custom TeX-Template** select the "**main.tex"** in the project's parent 
 
 In **Project settings** you may change other attributes of your project like title, author, margins, citation styles etc.
 
+## Adding support for [pandoc-crossref](http://lierdakil.github.io/pandoc-crossref/)
+Next we will have to change Zettlr's default export command to make cross references (referencing of figures and sections) work.
+Press **Ctrl**+**,** to open settings. Go to "Advanced" and replace the Pandoc command with the following
+```
+pandoc -F pandoc-crossref --citeproc "$infile$" -f markdown $outflag$ $tpl$ $toc$ $tocdepth$ $bibliography$ $cslstyle$ $standalone$ --pdf-engine=xelatex --mathjax -o "$outfile$" --number-sections --listings
+```
+
 ## Adding [Mermaid](https://mermaid-js.github.io/mermaid/#/) Support
 ```bash
 npm install -g mermaid-filter
@@ -66,7 +73,7 @@ In **ads/settings.tex** change the line
 \newcommand{\documentLanguage}{de}
 ```
 to your desired language ("de" for German or "en" for English)
-g
+g.
 ## I want to change the document type
 
 In **ads/settings.tex** change the line 
@@ -109,15 +116,19 @@ You can find everything you will need in **ads/settings.tex**. The following lin
 \newcommand{\tutor}{Dr.-Ing. Peter Lustig}
 `````
 
-## I don't need a list of tables/list of figures
+## I don't need a list of tables/list of figures/listings
 
-In **main.tex** comment the relevant lines:
+In **references.md** remove the relevant lines:
 
 `````tex
 \pagebreak
 \listoftables
 \pagebreak
 \listoffigures
+\pagebreak
+\addcontentsline{toc}{section}{\lstlistlistingname}
+\lstlistoflistings
+\pagebreak
 `````
 
 ## I want a specific citation style

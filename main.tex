@@ -139,6 +139,8 @@ $endif$
 \renewcommand\lstlistingname{\listingPhrase}
 \renewcommand\lstlistlistingname{\listListingPhrase}
 \def\lstlistingautorefname{\authorListingPhrase}
+% prevent weird characters in strings inside code
+\lstset{showstringspaces=false}
 
 % Spaces in tables
 %\setlength{\tabcolsep}{\tableColumnMargin}
@@ -251,6 +253,9 @@ pdfborder={0 0 0}
 
 $highlighting-macros$
 
+% needed with --listings flag
+\newcommand{\passthrough}[1]{#1}
+
 
 % Set the date (either \today or a date from the frontmatter)
 \date{$PDF_DATE$}
@@ -309,11 +314,4 @@ $GENERATE_TOC$
 \setcounter{page}{1}
 \setcounter{table}{0}
 $body$
-
-\pagenumbering{Roman}
-\setcounter{page}{6}
-\pagebreak
-\listoftables
-\pagebreak
-\listoffigures
 \end{document} 
