@@ -34,7 +34,7 @@ In **Project settings** you may change other attributes of your project like tit
 Next we will have to change Zettlr's default export command to make cross references (referencing of figures and sections) work.
 Press **Ctrl**+**,** to open settings. Go to "Advanced" and replace the Pandoc command with the following
 ```
-pandoc -F pandoc-crossref --citeproc "$infile$" -f markdown $outflag$ $tpl$ $toc$ $tocdepth$ $bibliography$ $cslstyle$ $standalone$ --pdf-engine=xelatex --mathjax -o "$outfile$" --number-sections --listings
+pandoc -F pandoc-crossref "$infile$" -f markdown $outflag$ $tpl$ $toc$ $tocdepth$ $bibliography$ $cslstyle$ $standalone$ --pdf-engine=xelatex --mathjax -o "$outfile$" --number-sections --listings
 ```
 
 ## Adding [Mermaid](https://mermaid-js.github.io/mermaid/#/) Support
